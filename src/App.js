@@ -1,25 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
+import * as math from "mathjs"
+
+
+
+const App = () => {
+  const [input, setInput] = useState('');
+
+  const handleButtonClick = (value) => {
+   
+    const isOperator = ['+', '-', '*', '/'].includes(value);
+  const lastCharIsOperator = ['+', '-', '*', '/'].includes(input.slice(-1));
+  const lastNumber = input.split(/[\+\-\*\/]/).pop();
+
+
+    if ((isOperator && lastCharIsOperator && value !== '-') || (value === '.' && lastNumber.includes('.'))) {
+      return;
+    }
+
+    if (value === '0' && input === '0') {
+      return;
+    }
+
+    setInput((prevInput) => prevInput + value);
+  };
+
+  
+
+  const handleCalculate = () => {
+    try {
+
+      const result = math.evaluate(input);
+      setInput(result.toString());
+    } catch (error) {
+     
+      setInput('Error');
+    }
+  };
+
+  const handleClear = () => {
+   
+    setInput('');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="calculator">
+      <div id="display" className="display">
+        {input || '0'}
+      </div>
+      <div className="buttons">
+        <button id="zero" onClick={() => handleButtonClick('0')}>0</button>
+        <button id="one" onClick={() => handleButtonClick('1')}>1</button>
+        <button id="two" onClick={() => handleButtonClick('2')}>2</button>
+        <button id="three" onClick={() => handleButtonClick('3')}>3</button>
+        <button id="four" onClick={() => handleButtonClick('4')}>4</button>
+        <button id="five" onClick={() => handleButtonClick('5')}>5</button>
+        <button id="six" onClick={() => handleButtonClick('6')}>6</button>
+        <button id="seven" onClick={() => handleButtonClick('7')}>7</button>
+        <button id="eight" onClick={() => handleButtonClick('8')}>8</button>
+        <button id="nine" onClick={() => handleButtonClick('9')}>9</button>
+        <button id="add" onClick={() => handleButtonClick('+')}>+</button>
+        <button id="subtract" onClick={() => handleButtonClick('-')}>-</button>
+        <button id="multiply" onClick={() => handleButtonClick('*')}>*</button>
+        <button id="divide" onClick={() => handleButtonClick('/')}>/</button>
+        <button id="decimal" onClick={() => handleButtonClick('.')}>.</button>
+        <button id="equals" onClick={handleCalculate}>=</button>
+        <button id="clear" onClick={handleClear}>AC</button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
