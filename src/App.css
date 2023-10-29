@@ -1,77 +1,112 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #d1d1d1;
-  }
-  
-  .calculator {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 300px;
-  }
-  
-  #display {
-    background-color: #eee;
-    font-size: 24px;
-    padding: 20px;
-    text-align: right;
-    border-bottom: 1px solid #ccc;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #d1d1d1;
+}
+
+.calculator {
+  border: 3px solid rgb(150, 146, 146);
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+}
+
+#display {
+  background-color: #eee;
+  font-size: 24px;
+  padding: 20px;
+  text-align: right;
+  border-bottom: 1px solid #ccc;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+button {
+  font-size: 20px;
+  border: none;
+  background-color: #f0f0f0;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+.operator-button {
+  background-color: #f39c12;
+  color: #fff;
+}
+
+.operator-button:hover {
+  background-color: #e67e22;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.equal-button {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.equal-button:hover {
+  background-color: #27ae60;
+}
+
+@media (max-width: 320px) {
   .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  button {
-    font-size: 20px;
-    border: none;
-    background-color: #f0f0f0;
-    padding: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #ddd;
-  }
-  
-  .operator-button {
-    background-color: #f39c12;
-    color: #fff;
-  }
-  
-  .operator-button:hover {
-    background-color: #e67e22;
-  }
-  
-  .delete-button {
-    background-color: #e74c3c;
-    color: #fff;
-  }
-  
-  .delete-button:hover {
-    background-color: #c0392b;
-  }
-  
-  .equal-button {
-    background-color: #2ecc71;
-    color: #fff;
-  }
-  
-  .equal-button:hover {
-    background-color: #27ae60;
-  }
-  
-  @media (max-width: 320px) {
-    .buttons {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
+}
+
+#clear {
+  background-color: #ecc1c1;
+}
+
+#divide {
+  color: white;
+  background-color: #f0e689;
+}
+
+#multiply {
+  color: white;
+  background-color: #7bdca3;
+}
+#subtract {
+  color: white;
+
+  background-color: #eead74;
+}
+#add {
+  color: white;
+  background-color: #dda3fa;
+}
+
+#delete {
+  color: black;
+
+  font-weight: bold;
+  background-color: rgb(174, 228, 228);
+}
+
+#equals {
+  color: white;
+  background-color: rgb(117, 94, 94);
+}
