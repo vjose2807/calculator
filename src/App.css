@@ -81,32 +81,24 @@ button:hover {
 }
 
 #divide {
-  color: white;
   background-color: #f0e689;
 }
 
 #multiply {
-  color: white;
   background-color: #7bdca3;
 }
 #subtract {
-  color: white;
-
   background-color: #eead74;
 }
 #add {
-  color: white;
   background-color: #dda3fa;
 }
 
 #delete {
-  color: black;
-
   font-weight: bold;
   background-color: rgb(174, 228, 228);
 }
 
 #equals {
-  color: white;
   background-color: rgb(117, 94, 94);
 }
