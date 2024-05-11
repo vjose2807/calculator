@@ -14,7 +14,6 @@ const App = () => {
   const lastCharIsOperator = ['+', '-', '*', '/'].includes(input.slice(-1));
   const lastNumber = input.split(/[\+\-\*\/]/).pop();
 
-
     if ((isOperator && lastCharIsOperator && value !== '-') || (value === '.' && lastNumber.includes('.'))) {
       return;
     }
